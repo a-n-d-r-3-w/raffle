@@ -8,5 +8,10 @@ const linesWithoutHeader = lines.slice(1);
 
 linesWithoutHeader.map((line) => {
   const studentData = line.split(",");
-  console.log(studentData);
+  const student = {
+    lastName: studentData[0],
+    firstName: studentData[1],
+    homeRoom: studentData[2],
+  };
+  console.log(student);
 });
