@@ -6,6 +6,7 @@ const dataAsOneLongString = fs.readFileSync("students.csv", {
 const lines = dataAsOneLongString.split("\r\n");
 const linesWithoutHeader = lines.slice(1);
 
+const students = [];
 linesWithoutHeader.map((line) => {
   const studentData = line.split(",");
   const student = {
@@ -13,5 +14,6 @@ linesWithoutHeader.map((line) => {
     firstName: studentData[1],
     homeRoom: studentData[2],
   };
-  console.log(student);
+  students.push(student);
 });
+console.log(students);
