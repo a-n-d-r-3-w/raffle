@@ -6,14 +6,18 @@ const dataAsOneLongString = fs.readFileSync("students.csv", {
 const lines = dataAsOneLongString.split("\r\n");
 const linesWithoutHeader = lines.slice(1);
 
-const students = [];
+const studentsGroupedByHomeroom = {};
 linesWithoutHeader.map((line) => {
   const studentData = line.split(",");
   const student = {
     lastName: studentData[0],
     firstName: studentData[1],
-    homeRoom: studentData[2],
   };
-  students.push(student);
+  const homeroom = studentData[2];
+  if (studentsGroupedByHomeroom[homeroom]) {
+    studentsGroupedByHomeroom[homeroom].push(student);
+  } else {
+    studentsGroupedByHomeroom[homeroom] = [student];
+  }
 });
-console.log(students);
+console.log(studentsGroupedByHomeroom);
