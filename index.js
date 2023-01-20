@@ -35,12 +35,12 @@ const getRandomInt = (max) => {
 
 // For each homeroom...
 homerooms.forEach((homeroom) => {
-  console.log(`======== ${homeroom} ========`);
-
-  // Pick a winner.
+  // Pick the winner of the teacher experience.
   const randomIndex = getRandomInt(studentsGroupedByHomeroom[homeroom].length);
   const winner = studentsGroupedByHomeroom[homeroom][randomIndex];
-  console.log(`Winner: ${winner.firstName} ${winner.lastName}`);
+  console.log(
+    `Winner of the teacher experience for ${homeroom}: ${winner.firstName} ${winner.lastName}`
+  );
 
   // Remove winner.
   studentsGroupedByHomeroom[homeroom] = studentsGroupedByHomeroom[
@@ -51,9 +51,17 @@ homerooms.forEach((homeroom) => {
       student.lastName === winner.lastName;
     return !isWinner;
   });
-
-  // Pick another winner.
-  const randomIndex2 = getRandomInt(studentsGroupedByHomeroom[homeroom].length);
-  const winner2 = studentsGroupedByHomeroom[homeroom][randomIndex2];
-  console.log(`Winner 2: ${winner2.firstName} ${winner2.lastName}`);
 });
+
+// Pick winner of "Principal For A Day".
+let students = [];
+homerooms.forEach((homeroom) => {
+  students = students.concat(studentsGroupedByHomeroom[homeroom]);
+});
+const randomIndex = getRandomInt(students.length);
+const winner = students[randomIndex];
+console.log(
+  `Winner of "Principal For A Day": ${winner.firstName} ${winner.lastName}`
+);
+
+// Pick winner(s) of T-shirt activity.
