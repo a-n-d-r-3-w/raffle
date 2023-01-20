@@ -4,6 +4,8 @@ Picks raffle winners.
 
 ## How to use
 
+These instructions assume you have Git and Node.js installed on your machine.
+
 1. In a terminal, run:
 
 ```
