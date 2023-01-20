@@ -29,19 +29,31 @@ linesWithoutHeader.map((line) => {
   studentsGroupedByHomeroom[homeroom].push(student);
 });
 
-// Pick a winner from each class.
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * max);
 };
 
-const drawResults = {};
+// For each homeroom...
 homerooms.forEach((homeroom) => {
-  const studentsInHomeroom = studentsGroupedByHomeroom[homeroom];
-  console.log(homeroom);
-  console.log(studentsInHomeroom);
-  const numStudents = studentsInHomeroom.length;
-  const randomIndex = getRandomInt(numStudents);
-  const winner = studentsInHomeroom[randomIndex];
-  console.log("winner: " + winner.firstName + " " + winner.lastName);
-  console.log(numStudents);
+  console.log(`======== ${homeroom} ========`);
+
+  // Pick a winner.
+  const randomIndex = getRandomInt(studentsGroupedByHomeroom[homeroom].length);
+  const winner = studentsGroupedByHomeroom[homeroom][randomIndex];
+  console.log(`Winner: ${winner.firstName} ${winner.lastName}`);
+
+  // Remove winner.
+  studentsGroupedByHomeroom[homeroom] = studentsGroupedByHomeroom[
+    homeroom
+  ].filter((student) => {
+    const isWinner =
+      student.firstName === winner.firstName &&
+      student.lastName === winner.lastName;
+    return !isWinner;
+  });
+
+  // Pick another winner.
+  const randomIndex2 = getRandomInt(studentsGroupedByHomeroom[homeroom].length);
+  const winner2 = studentsGroupedByHomeroom[homeroom][randomIndex2];
+  console.log(`Winner 2: ${winner2.firstName} ${winner2.lastName}`);
 });
