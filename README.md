@@ -1,2 +1,3 @@
-# teacher-experiences-lottery
+# raffle
+
 Picks winners from each classroom
