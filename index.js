@@ -42,7 +42,7 @@ homerooms.forEach((homeroom) => {
     `Winner of the teacher experience for ${homeroom}: ${winner.firstName} ${winner.lastName}`
   );
 
-  // Remove winner.
+  // Remove winner from the pool.
   studentsGroupedByHomeroom[homeroom] = studentsGroupedByHomeroom[
     homeroom
   ].filter((student) => {
