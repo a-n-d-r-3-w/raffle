@@ -34,4 +34,9 @@ node index.js
 Winner of the teacher experience for 4-EP: Harry Potter
 Winner of the teacher experience for K-MH: Matilda Wormwood
 Winner of "Principal For A Day": Claire Cadwallader
+Winners of the T-shirt activity:
+Pellumb Stein
+Ratan Ion
+Fina Richa
+Heber Daisy
 ```
