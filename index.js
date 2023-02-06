@@ -98,3 +98,17 @@ students = students.filter((student) => {
 /**
  * Pick four winners of T-shirt activity.
  */
+console.log("Winners of the T-shirt activity:");
+for (let i = 0; i < 4; i++) {
+  const randomIndex = getRandomInt(students.length);
+  const winner = students[randomIndex];
+  console.log(winner.firstName + " " + winner.lastName);
+
+  // Remove winner from the pool.
+  students = students.filter((student) => {
+    const isWinner =
+      student.firstName === winner.firstName &&
+      student.lastName === winner.lastName;
+    return !isWinner;
+  });
+}
